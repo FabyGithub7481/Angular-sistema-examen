@@ -5,7 +5,11 @@
   "projects": {
     "sistema-examenes-frontend": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -62,16 +66,17 @@
           },
           "defaultConfiguration": "production"
         },
-       "serve": {
+        "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
-          "options": {
-            "browserTarget": "sistema-examenes-frontend:build"
-          },
           "configurations": {
             "production": {
-              "browserTarget": "dotbot:build:production"
+              "browserTarget": "sistema-examenes-frontend:build:production"
+            },
+            "development": {
+              "browserTarget": "sistema-examenes-frontend:build:development"
             }
-            }
+          },
+          "defaultConfiguration": "development"
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
@@ -99,5 +104,6 @@
         }
       }
     }
-  }
+  },
+  "defaultProject": "sistema-examenes-frontend"
 }
