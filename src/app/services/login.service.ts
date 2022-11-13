@@ -7,6 +7,9 @@ import baserUrl from './helper';
   providedIn: 'root',
 })
 export class LoginService {
+
+  public loginStatusSubjec = new Subject<boolean>();
+
   constructor(private http: HttpClient) {}
   // genera el token
   public generateToken(loginData: any) {
